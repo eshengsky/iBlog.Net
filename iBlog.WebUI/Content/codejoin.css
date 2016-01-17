@@ -1,0 +1,51 @@
+﻿.container-fluid {
+    height: 100%;
+}
+
+.tool-title {
+    position: absolute;
+    top: 90px;
+    width: 100%;
+}
+
+    .tool-title a {
+        margin-top: 4px;
+        margin-left: 10px;
+    }
+
+    .tool-title h4, .tool-title a {
+        float: left;
+    }
+
+.return-tools:hover {
+    border-bottom: 1px dashed #31708f;
+}
+
+.edit-row {
+    height: 100%;
+    padding-top: 130px;
+    padding-bottom: 20px;
+}
+
+#content {
+    height: 100%;
+}
+
+#editor {
+    position: relative;
+    height: 100%;
+    padding-bottom: 30px;
+}
+
+#flagTable td.flag {
+    vertical-align: middle;
+}
+
+#txtTip {
+    vertical-align: bottom;
+    display: none;
+}
+
+.desc {
+    padding-left: 20px;
+}

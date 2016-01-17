@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "缓存管理";
+    Layout = "/Views/shared/_LayoutAdmin.cshtml";
+}
+@Styles.Render("~/Content/cachemanage")
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-8">
+        <h2>缓存管理</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="ibox m-t-xl">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="input-group input-append dropdown combobox" data-initialize="combobox">
+                            <input type="text" class="form-control" id="cacheKey" placeholder="缓存key">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li data-value="categories"><a href="#">categories</a></li>
+                                    <li data-value="post_文章Alias"><a href="#">post_文章Alias</a></li>
+                                    <li data-value="postlist_ca_分类Alias_ft_查询类别_kw_关键字_pi_页码_ps_条数_sb_排序类型"><a href="#">postlist_ca_分类Alias_ft_查询类别_kw_关键字_pi_页码_ps_条数_sb_排序类型</a></li>
+                                    <li data-value="reglist_q_关键字"><a href="#">reglist_q_关键字</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-right">
+                        <button class="btn btn-white" type="button" id="btnQuery"><i class="fa fa-search"></i> 检索缓存</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <textarea class="form-control m-t-sm" id="cacheContent" rows="20" style="max-width:100%;min-width:100%;"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-primary m-t-sm" type="button" id="btnClear"><i class="fa fa-times"></i> 清除缓存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ul class="fixed-tool list-unstyled">
+    <li id="scrollTop" style="display: none;">
+        <a title="回顶部">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </li>
+</ul>
+@Scripts.Render("~/bundles/admin")
+@Scripts.Render("~/bundles/cachemanage")

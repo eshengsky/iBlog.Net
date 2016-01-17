@@ -1,0 +1,234 @@
+﻿@model SystemConfig
+@{
+    ViewBag.Title = "系统设置";
+    Layout = "/Views/shared/_LayoutAdmin.cshtml";
+}
+@Styles.Render("~/Content/settings")
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-8">
+        <h2>系统设置</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="panel-group" role="tablist" aria-multiselectable="false">
+                        <div class="row">
+                            <div class="col-lg-6" style="margin-bottom:10px;">
+                                @using (Ajax.BeginForm("SaveSite", "Admin", null, new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccess", OnFailure = "onFailure" }))
+                                {
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingSite">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" href="#tabSite" aria-expanded="true" aria-controls="tabSite">
+                                                    站点设置
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="tabSite" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSite">
+                                            <ul class="list-group">
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        网站名称
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.TextBoxFor(t => t.SiteName, new { @class = "form-control", placeholder = "该网站的名称" })
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        网站域名
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.TextBoxFor(t => t.SiteDomain, new { @class = "form-control", placeholder = "该网站的域名" })
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        备案号（用于底部显示）
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.TextBoxFor(t => t.RecordNo, new { @class = "form-control", placeholder = "网站域名的备案号" })
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        网站logo
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <span class="fileinput-button">
+                                                            <img alt="profile" class="img-circle profile-img" src="@Model.LogoPath" style="width:146px;height:146px;">
+                                                            <input type="file" class="fileupload" name="file">
+                                                            @Html.HiddenFor(t => t.LogoPath)
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        每页显示文章数
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <div class="spinbox" data-initialize="spinbox" data-step="5">
+                                                            @Html.TextBoxFor(t => t.PageSize, new { @class = "form-control input-mini spinbox-input", @placeholder = "每页的条数" })
+                                                            <div class="spinbox-buttons btn-group btn-group-vertical">
+                                                                <button type="button" class="btn btn-white spinbox-up btn-xs">
+                                                                    <span class="fa fa-chevron-up"></span><span class="sr-only">Increase</span>
+                                                                </button>
+                                                                <button type="button" class="btn btn-white spinbox-down btn-xs">
+                                                                    <span class="fa fa-chevron-down"></span><span class="sr-only">Decrease</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        生成文章目录
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.HiddenFor(t => t.ShowMenu)
+                                                        <input type="checkbox" class="js-switch" @(Model.ShowMenu ? "checked" : "" ) />
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        缓存过期时间（分钟）
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <div class="spinbox" data-initialize="spinbox" data-step="30">
+                                                            @Html.TextBoxFor(t => t.CacheExpired, new { @class = "form-control input-mini spinbox-input", @placeholder = "缓存过期时间" })
+                                                            <div class="spinbox-buttons btn-group btn-group-vertical">
+                                                                <button type="button" class="btn btn-white spinbox-up btn-xs">
+                                                                    <span class="fa fa-chevron-up"></span><span class="sr-only">Increase</span>
+                                                                </button>
+                                                                <button type="button" class="btn btn-white spinbox-down btn-xs">
+                                                                    <span class="fa fa-chevron-down"></span><span class="sr-only">Decrease</span>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="collapse-btn">
+                                                <button type="submit" class="btn btn-block btn-primary">保存更改</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="col-lg-6">
+                                @using (Ajax.BeginForm("SaveComponent", "Admin", null, new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccess", OnFailure = "onFailure" }))
+                                {
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading" role="tab" id="headingComponent">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" href="#tabComponent" aria-expanded="true" aria-controls="tabComponent">
+                                                    组件设置
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="tabComponent" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingComponent">
+                                            <ul class="list-group">
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        <a href="http://api.fanyi.baidu.com" target="_blank">百度翻译</a>key（用于文章Url显示）
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.TextBoxFor(t => t.TranslateKey, new { @class = "form-control", placeholder = "申请的翻译key" })
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        启用统计功能（<a href="http://tongji.baidu.com" target="_blank">百度统计</a>）
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.HiddenFor(t => t.EnableStatistics)
+                                                        <input type="checkbox" class="js-switch" @(Model.EnableStatistics ? "checked" : "" ) />
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        百度统计id
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.TextBoxFor(t => t.StatisticsId, new { @class = "form-control", placeholder = "申请的统计id" })
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        启用分享功能（<a href="http://www.jiathis.com/" target="_blank">JisThis</a>）
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.HiddenFor(t => t.EnableShare)
+                                                        <input type="checkbox" class="js-switch" @(Model.EnableShare ? "checked" : "" ) />
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        JiaThis分享id
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.TextBoxFor(t => t.JiaThisId, new { @class = "form-control", placeholder = "申请的分享id" })
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        显示文章评论（<a href="http://changyan.kuaizhan.com" target="_blank">畅言</a>）
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.HiddenFor(t => t.ShowComments)
+                                                        <input type="checkbox" class="js-switch" @(Model.ShowComments ? "checked" : "" ) />
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        畅言appid
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.TextBoxFor(t => t.ChangyanId, new { @class = "form-control", placeholder = "申请的appid" })
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        畅言conf
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.TextBoxFor(t => t.ChangyanConf, new { @class = "form-control", placeholder = "申请的conf" })
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        显示留言（<a href="http://www.uyan.cc/" target="_blank">友言</a>）
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.HiddenFor(t => t.ShowGuestbook)
+                                                        <input type="checkbox" class="js-switch" @(Model.ShowGuestbook ? "checked" : "" ) />
+                                                    </div>
+                                                </li>
+                                                <li class="list-group-item clearfix">
+                                                    <div class="pull-left">
+                                                        友言uid
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        @Html.TextBoxFor(t => t.YouyanId, new { @class = "form-control", placeholder = "申请的uid" })
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="collapse-btn">
+                                                <button class="btn btn-block btn-primary">保存更改</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/admin")
+@Scripts.Render("~/bundles/settings")

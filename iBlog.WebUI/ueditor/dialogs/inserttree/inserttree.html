@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="../internal.js"></script>
+    <script src="/Scripts/jquery-2.1.4.min.js"></script>
+    <style>
+        body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+        }
+
+        select {
+            font-family: "微软雅黑";
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .btn {
+            font-family: "微软雅黑";
+            display: inline-block;
+            margin-bottom: 0;
+            margin-right: 5px;
+            padding: 4px 10px;
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid #ccc;
+            white-space: nowrap;
+            font-size: 14px;
+            border-radius: 4px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            vertical-align: top;
+            background-color: #fff;
+            margin-top: 10px;
+        }
+
+            .btn:hover {
+                background-color: #e6e6e6;
+                border-color: #adadad;
+            }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div style="color: #31708f; margin-bottom: 20px;">
+            根据选择的节点数目自动生成一个时间树，层次清晰，可用来制作教育经历、工作经历等内容。
+        </div>
+        <div>
+            <span>选择节点数</span>
+            <select id="selectNum" style="margin-left: 10px;">
+                <option selected="selected">2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+            </select>
+            <span style="margin-left: 20px;">样式类型</span>
+            <select id="selectStyle" style="margin-left: 10px;">
+                <option selected="selected" value="0">单侧</option>
+                <option value="1">双侧</option>
+            </select>
+        </div>
+        <input type="button" class="btn" value="生成" id="insertTree" />
+    </div>
+    <script>
+        domUtils.on(document.getElementById("insertTree"), "click", function () {
+            var num = $("#selectNum").val();
+            var style = $("#selectStyle").val();
+            var output = "";
+            if (style == 0) {
+                output = "<ul class=\"timeline\">";
+                for (var i = 0; i < num; i++) {
+                    output += "<li><time class=\"timeline-time\"><span class=\"timeline-month ue_t\">6月</span><span class=\"timeline-year ue_t\">2015</span></time><i class=\"timeline-icon btn-round-icon-xs hidden-xs\"></i><div class=\"timeline-content\"><div class=\"ue_t\"><h2><strong>标题</strong></h2></div><div class=\"ue_t\">文字说明</div></div></li>";
+                }
+            } else {
+                output = "<ul class=\"timeline timeline-inverted\">";
+                for (var i = 0; i < num; i++) {
+                    var className = "";
+                    if (i % 2 == 0) {
+                        className = "li-inverted";
+                    }
+                    output += "<li class=\"" + className + "\"><time class=\"timeline-time\"><span class=\"timeline-month ue_t\">6月</span><span class=\"timeline-year ue_t\">2015</span></time><i class=\"timeline-icon btn-round-icon-xs hidden-xs\"></i><div class=\"timeline-content\"><div class=\"ue_t\"><h2><strong>标题</strong></h2></div><div class=\"ue_t\">文字说明</div></div></li>";
+                }
+            }
+            output += "</ul>";
+            editor.execCommand("insertHTML", output);
+            dialog.close();
+        });
+    </script>
+</body>
+</html>

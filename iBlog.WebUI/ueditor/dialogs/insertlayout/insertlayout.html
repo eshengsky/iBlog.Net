@@ -1,0 +1,285 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="../internal.js"></script>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "微软雅黑";
+        }
+
+        .warpper {
+            position: relative;
+            height: 100%;
+            margin: 20px;
+        }
+
+        .tabbody {
+            height: 300px;
+        }
+
+        .tabhead span {
+            height: 31px;
+        }
+
+            .tabbody .ipanel {
+                height: 100%;
+                padding: 10px;
+                position: absolute;
+                background-color: #fff;
+            }
+
+        .content {
+            padding: 20px;
+        }
+
+            .content table {
+                width: 100%;
+            }
+
+        .tdLayout {
+            width: 80%;
+        }
+
+            .tdLayout div {
+                box-sizing: border-box;
+                display: block;
+                float: left;
+            }
+
+        .tdBtn {
+            vertical-align: top;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="warpper" id="layouttab">
+        <div id="head" class="tabhead">
+            <span tabsrc="tab48" class="focus">左窄右宽</span>
+            <span tabsrc="tab84">左宽右窄</span>
+            <span tabsrc="tab66">2列均分</span>
+            <span tabsrc="tab444">3列均分</span>
+            <span tabsrc="tab3333">4列均分</span>
+            <span tabsrc="tab1">1列独占</span>
+        </div>
+        <div class="tabbody">
+            <div class="ipanel" id="tab48">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h4>2列（左窄右宽）</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdLayout">
+                                <div style="width: 33%;">
+                                    列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容
+                                </div>
+                                <div style="width: 66%; padding-left:10px;">
+                                    列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容
+                                </div>
+
+                            </td>
+                            <td class="tdBtn">
+                                <input type="button" class="btn btn-default" id="btn48" value="插入" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ipanel" id="tab84">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h4>2列（左宽右窄）</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdLayout">
+                                <div style="width: 65%; ">
+                                    列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容
+                                </div>
+                                <div style="width: 35%; padding-left: 10px;">
+                                    列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容
+                                </div>
+                            </td>
+                            <td class="tdBtn">
+                                <input type="button" class="btn btn-default" id="btn84" value="插入" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ipanel" id="tab66">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h4>2列均分</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdLayout">
+                                <div style="width: 50%; ">
+                                    列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容
+                                </div>
+                                <div style="width: 50%; padding-left: 10px;">
+                                    列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容
+                                </div>
+                            </td>
+                            <td class="tdBtn">
+                                <input type="button" class="btn btn-default" id="btn66" value="插入" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ipanel" id="tab444">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h4>3列均分</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdLayout" style="width: 82%;">
+                                <div style="width: 33%; ">
+                                    列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容
+                                </div>
+                                <div style="width: 33%; padding-left: 10px;">
+                                    列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容
+                                </div>
+                                <div style="width: 33%; padding-left: 10px;">
+                                    列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容
+                                </div>
+                            </td>
+                            <td class="tdBtn">
+                                <input type="button" class="btn btn-default" id="btn444" value="插入" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ipanel" id="tab3333">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h4>4列均分</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdLayout">
+                                <div style="width: 25%; ">
+                                    列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容
+                                </div>
+                                <div style="width: 25%; padding-left: 10px;">
+                                    列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容
+                                </div>
+                                <div style="width: 25%; padding-left: 10px;">
+                                    列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容
+                                </div>
+                                <div style="width: 25%; padding-left: 10px;">
+                                    列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容
+                                </div>
+                            </td>
+                            <td class="tdBtn">
+                                <input type="button" class="btn btn-default" id="btn3333" value="插入" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="ipanel" id="tab1">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h4>1列独占</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="tdLayout">
+                                <div style="width: 100%;">
+                                    列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容
+                                </div>
+                            </td>
+                            <td class="tdBtn">
+                                <input type="button" class="btn btn-default" id="btn1" value="插入" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        function clickHandler(tabHeads, tabBodys, obj) {
+            //head样式更改
+            for (var k = 0, len = tabHeads.length; k < len; k++) {
+                tabHeads[k].className = "";
+            }
+            obj.className = "focus";
+            //body显隐
+            var tabSrc = obj.getAttribute("tabSrc");
+            for (var j = 0, length = tabBodys.length; j < length; j++) {
+                var body = tabBodys[j],
+                    id = body.getAttribute("id");
+                if (id != tabSrc) {
+                    body.style.zIndex = 1;
+                } else {
+                    body.style.zIndex = 200;
+                }
+            }
+        }
+
+        function switchTab(tabParentId) {
+            var tabElements = $G(tabParentId).children,
+                tabHeads = tabElements[0].children,
+                tabBodys = tabElements[1].children;
+
+            for (var i = 0, length = tabHeads.length; i < length; i++) {
+                var head = tabHeads[i];
+                if (head.className === "focus") clickHandler(tabHeads, tabBodys, head);
+                head.onclick = function () {
+                    clickHandler(tabHeads, tabBodys, this);
+                }
+            }
+        }
+
+        switchTab("layouttab");
+
+        domUtils.on(document.getElementById("btn48"), "click", function () {
+            editor.execCommand("insertHTML", "<div class=\"row\"><div class=\"col-md-4\">列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容</div><div class=\"col-md-8\">列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容</div></div>");
+            dialog.close();
+        });
+        domUtils.on(document.getElementById("btn84"), "click", function () {
+            editor.execCommand("insertHTML", "<div class=\"row\"><div class=\"col-md-8\">列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容</div><div class=\"col-md-4\">列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容</div></div>");
+            dialog.close();
+        });
+        domUtils.on(document.getElementById("btn66"), "click", function () {
+            editor.execCommand("insertHTML", "<div class=\"row\"><div class=\"col-md-6\">列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容</div><div class=\"col-md-6\">列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容</div></div>");
+            dialog.close();
+        });
+        domUtils.on(document.getElementById("btn444"), "click", function () {
+            editor.execCommand("insertHTML", "<div class=\"row\"><div class=\"col-md-4\">列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容</div><div class=\"col-md-4\">列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容</div><div class=\"col-md-4\">列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容</div></div>");
+            dialog.close();
+        });
+        domUtils.on(document.getElementById("btn3333"), "click", function () {
+            editor.execCommand("insertHTML", "<div class=\"row\"><div class=\"col-md-3\">列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容</div><div class=\"col-md-3\">列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容，列二内容</div><div class=\"col-md-3\">列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容，列三内容</div><div class=\"col-md-3\">列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容，列四内容</div></div>");
+            dialog.close();
+        });
+        domUtils.on(document.getElementById("btn1"), "click", function () {
+            editor.execCommand("insertHTML", "<div class=\"row\"><div class=\"col-md-12\">列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容，列一内容</div></div>");
+            dialog.close();
+        });
+    </script>
+</body>
+</html>

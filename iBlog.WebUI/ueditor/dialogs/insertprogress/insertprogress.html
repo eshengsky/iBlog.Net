@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="../internal.js"></script>
+    <script src="/Scripts/jquery-2.1.4.min.js"></script>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: "微软雅黑";
+            font-size: 14px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        /*-----------------------------------*/
+        /* progress */
+        /*-----------------------------------*/
+        .progress {
+            height: 30px;
+        }
+
+        .progress-bar {
+            line-height: 30px;
+            font-size: 13px;
+        }
+
+        .btn {
+            font-family: "微软雅黑";
+            display: inline-block;
+            margin-bottom: 0;
+            margin-right: 5px;
+            padding: 4px 10px;
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid #ccc;
+            white-space: nowrap;
+            font-size: 14px;
+            border-radius: 4px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            vertical-align: top;
+            background-color: #fff;
+            margin-top: 10px;
+        }
+
+            .btn:hover {
+                background-color: #e6e6e6;
+                border-color: #adadad;
+            }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div style="margin-bottom:15px;">
+            <span>情景色</span>
+            <select id="selectColor" onchange="changeColor(this);">
+                <option value="" selected="selected">首要/基本</option>
+                <option value="progress-bar-success">成功/活力</option>
+                <option value="progress-bar-info">信息/科技</option>
+                <option value="progress-bar-warning">警告/醒目</option>
+                <option value="progress-bar-danger">危险/重要</option>
+            </select>
+            <span style="margin-left: 10px;">百分比</span>
+            <select id="selectPercent" onchange="changePercent(this);">
+                <option>5</option>
+                <option>10</option>
+                <option>20</option>
+                <option>30</option>
+                <option>40</option>
+                <option>50</option>
+                <option selected="selected">60</option>
+                <option>70</option>
+                <option>80</option>
+                <option>90</option>
+                <option>100</option>
+            </select>
+            <span style="margin-left: 10px;">文字（可空）</span>
+            <input type="text" value="描述" onchange="changeText(this);" />
+        </div>
+        <div class="progress" id="progressbar">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 60%;">
+                <span class="ue_t">描述</span>
+            </div>
+        </div>
+        <input type="button" class="btn" value="插入" id="insertProgress" />
+    </div>
+    <script>
+        domUtils.on(document.getElementById("insertProgress"), "click", function () {
+            editor.execCommand("insertHTML", document.getElementById("progressbar").outerHTML);
+            console.log(document.getElementById("progressbar").outerHTML);
+            dialog.close();
+        });
+
+        function changeColor(obj) {
+            var value = $(obj).val();
+            $(".progress-bar").removeClass("progress-bar-success").removeClass("progress-bar-info").removeClass("progress-bar-warning").removeClass("progress-bar-danger").addClass(value);
+        }
+
+        function changePercent(obj) {
+            var value = $(obj).val();
+            $(".progress-bar").attr("aria-valuenow", value);
+            $(".progress-bar").css("width", value + "%");
+        }
+
+        function changeText(obj) {
+            var value = $(obj).val();
+            $(".ue_t").text(value);
+        }
+    </script>
+</body>
+</html>

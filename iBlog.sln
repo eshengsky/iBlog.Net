@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBlog.WebUI", "iBlog.WebUI\iBlog.WebUI.csproj", "{1A18FF97-0516-42BC-ACC7-C721132C14BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBlog.Domain", "iBlog.Domain\iBlog.Domain.csproj", "{2EB268F4-4EBC-47C1-82E0-0C4F9174C8AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iBlog.Utility", "iBlog.Utility\iBlog.Utility.csproj", "{7BD0E184-9B53-4771-916C-E642ADD4E57D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A18FF97-0516-42BC-ACC7-C721132C14BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A18FF97-0516-42BC-ACC7-C721132C14BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A18FF97-0516-42BC-ACC7-C721132C14BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A18FF97-0516-42BC-ACC7-C721132C14BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EB268F4-4EBC-47C1-82E0-0C4F9174C8AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EB268F4-4EBC-47C1-82E0-0C4F9174C8AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EB268F4-4EBC-47C1-82E0-0C4F9174C8AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EB268F4-4EBC-47C1-82E0-0C4F9174C8AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD0E184-9B53-4771-916C-E642ADD4E57D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD0E184-9B53-4771-916C-E642ADD4E57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD0E184-9B53-4771-916C-E642ADD4E57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD0E184-9B53-4771-916C-E642ADD4E57D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

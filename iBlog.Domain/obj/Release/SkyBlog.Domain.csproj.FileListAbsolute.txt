@@ -1,0 +1,9 @@
+F:\SkyBlog\SkyBlog\SkyBlog.Domain\bin\Release\SkyBlog.Domain.dll
+F:\SkyBlog\SkyBlog\SkyBlog.Domain\bin\Release\SkyBlog.Domain.pdb
+F:\SkyBlog\SkyBlog\SkyBlog.Domain\bin\Release\MongoDB.Bson.dll
+F:\SkyBlog\SkyBlog\SkyBlog.Domain\bin\Release\MongoDB.Driver.Core.dll
+F:\SkyBlog\SkyBlog\SkyBlog.Domain\bin\Release\MongoDB.Driver.dll
+F:\SkyBlog\SkyBlog\SkyBlog.Domain\bin\Release\MongoDB.Bson.xml
+F:\SkyBlog\SkyBlog\SkyBlog.Domain\bin\Release\MongoDB.Driver.xml
+F:\SkyBlog\SkyBlog\SkyBlog.Domain\obj\Release\SkyBlog.Domain.dll
+F:\SkyBlog\SkyBlog\SkyBlog.Domain\obj\Release\SkyBlog.Domain.pdb

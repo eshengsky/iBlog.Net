@@ -1,0 +1,67 @@
+﻿@model AboutConfig
+@{
+    ViewBag.Title = "关于管理";
+    Layout = "/Views/shared/_LayoutAdmin.cshtml";
+}
+@Styles.Render("~/Content/aboutmanage")
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-8">
+        <h2>关于管理</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                            <div class="about-block">
+                                @using (Ajax.BeginForm("SaveAbout", "Admin", null, new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccess", OnFailure = "onFailure" }))
+                                {
+                                    <div class="widget-head-color-box navy-bg p-lg text-center">
+                                        <div class="m-b-md">
+                                            @Html.TextBoxFor(t => t.FirstLine, new { @class = "form-group form-control text-center", placeholder = "第一行文本" })
+                                            @Html.TextBoxFor(t => t.SecondLine, new { @class = "form-control text-center", placeholder = "第二行文本" })
+                                        </div>
+                                        <span class="fileinput-button">
+                                            <img alt="profile" class="img-circle profile-img m-b-md" src="@Model.PhotoPath">
+                                            <input type="file" class="fileupload" name="file">
+                                            @Html.HiddenFor(t => t.PhotoPath)
+                                        </span>
+                                        <span class="fileinput-button">
+                                            <img alt="wechat" class="wechat-img m-b-md" src="@Model.QrcodePath" style="width:100px;height:100px;">
+                                            <input type="file" class="fileupload" name="file">
+                                            @Html.HiddenFor(t => t.QrcodePath)
+                                        </span>
+                                        <h4>
+                                            <span id="job-title">
+                                                @Html.TextBoxFor(t => t.ThirdLine, new { @class = "form-control", placeholder = "第三行文本，支持用 | 分割切换显示" })
+                                            </span>
+                                        </h4>
+                                    </div>
+                                    <div class="widget-text-box">
+                                        <p>
+                                            @Html.TextAreaFor(t => t.Profile, new { @class = "form-control", cols = "3", placeholder = "个人简介" })
+                                        </p>
+                                        <div class="row form-inline">
+                                            <div class="col-md-6">
+                                                <i class="fa fa-wechat"></i> @Html.TextBoxFor(t => t.Wechat, new { @class = "form-control", placeholder = "微信号" }) <i class="fa fa-lg fa-qrcode"></i>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <i class="fa fa-envelope"></i> @Html.TextBoxFor(t => t.Email, new { @class = "form-control", placeholder = "Email地址" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary pull-right m-t-sm"><i class="fa fa-cloud-upload"></i> 保存修改</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/admin")
+@Scripts.Render("~/bundles/aboutmanage")

@@ -1,0 +1,67 @@
+﻿As of ConfigHelper v2 a big change has been done in order to make it possible 
+to use it with IoC containers and using in unit testing by no longer beeing a static class
+and instead going with Interface usage.
+
+All public methods are also now made virtual to allow easier extensibility
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+Using ConfigHelper as of v2 doesn't change too much but is significant:
+
+public class MyConfiguration {
+    //First change is the IConfigSettings interface which has been created
+    private readonly IConfigSettings _configSettings;
+    private readonly string _configName;
+    private readonly string _configPath;
+
+    public MyConfiguration(IConfigSettings configSettings, string configName, string configPath)
+    {
+        _configSettings = configSettings;
+        _configName = configName;
+        _configPath = configPath;
+    }
+
+    [IsSetting]
+    public string MyString { get; set; }
+    [IsSetting]
+    public double MyDouble { get; set; }
+    [IsSetting]
+    public Point[] MyPoints { get; set; }
+
+    public void Save() {
+    	//This is the second change and also what might be a bit confusing
+    	//all Save methods has become one method and now relies on
+    	//.Save<T> where T is a class which tells what type of config it is
+    	//in this example we are using a XmlConfig hence .Save<XmlConfig>
+    	//the others are AppConfig, WebConfig and CustomConfig
+        _configSettings.Save<XmlConfig>(this, _configName, _configPath);
+    }
+    public void Load() {
+    	//The same change is true for this .Load<T> method
+        _configSettings.Load<XmlConfig>(this, _configName, _configPath);
+    }
+}
+
+
+protected void Page_Load(object sender, EventArgs e)
+{
+    IConfigSettings configSettings = new ConfigSettings();
+    var tmpString = "TestString";
+    var config = new MyConfiguration(configSettings, "configuration", Server.MapPath("~/"))
+                     {
+                         MyString = tmpString,
+                         MyDouble = 29.42,
+                         MyPoints = new[] {new Point(3, 2), new Point(45, 78)}
+                     };
+    config.Save();
+    //We reset everything
+    config.MyString = "";
+    config.MyDouble = 0;
+    config.MyPoints = new Point[]{};
+    //We load it
+    config.Load();
+    if (config.MyString == tmpString)
+    {
+        //we know it worked it if gets here
+        var i = 1;
+    }
+}

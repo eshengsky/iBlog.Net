@@ -1,0 +1,191 @@
+﻿@model Filters
+@{
+    ViewBag.Title = Settings.Config.SiteName;
+}
+@Styles.Render("~/Content/blog")
+<div class="container-fluid render-body">
+    <div class="row">
+        <div class="col-md-2 category-block hidden-sm hidden-xs">
+            <div class="category-top">
+                文章分类
+            </div>
+            <div class="category-split"></div>
+            <div class="category-list">
+                <ul class="nav nav-pills nav-stacked">
+                    @foreach (var category in (List<CategoryBar>)ViewBag.CateList)
+                    {
+                        <li role="presentation" class="@(string.Equals(ViewBag.CateAlias.ToString(), category.Alias, StringComparison.CurrentCultureIgnoreCase) ? "active" : "")">
+                            @if (string.IsNullOrWhiteSpace(category.Link))
+                            {
+                                <a href="/blog/category/@category.Alias">
+                                    <img src="@category.Img" />
+                                    <span>@category.CateName</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a target="_blank" href="@category.Link">
+                                    <img src="@category.Img" />
+                                    <span>@category.CateName</span>
+                                </a>
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+
+        </div>
+        <div class="col-md-8 col-md-offset-2 blog-list">
+            <div class="row data-block">
+                <div class="col-md-12">
+                    <div class="list-wrap">
+                        <div class="row top-bar">
+                            @using (Ajax.BeginForm("GetPostList", "Blog", new {cateAlias = ViewBag.CateAlias }, new AjaxOptions {HttpMethod = "Post", OnSuccess = "onSuccess"}, new {@id = "filterForm"}))
+                            {
+                            <div class="col-md-7 col-sm-4 hidden-xs list-top-left">
+                                <a class="current" sort="0">最新</a>
+                                <a sort="1">最热</a>
+                                @Html.TextBoxFor(t => t.SortBy, new {@Value = "0", @class = "hidden", @readonly = "readonly", aria_hidden = "true"})
+                                @Html.TextBoxFor(t => t.PageIndex, new {@Value = "1", @class = "hidden", @readonly = "readonly", aria_hidden = "true"})
+                            </div>
+                            <div class="col-md-5 list-top-right">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist">
+                                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                                                <span class="selected-label">&nbsp;</span>
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="dropdown-menu animated-quick fadeInDown" role="menu">
+                                                <li data-value="0" data-selected="true" class="active">
+                                                    <a href="#">全文</a>
+                                                </li>
+                                                <li data-value="1">
+                                                    <a href="#">标题</a>
+                                                </li>
+                                                <li data-value="2">
+                                                    <a href="#">标签</a>
+                                                </li>
+                                                <li data-value="3">
+                                                    <a href="#">日期</a>
+                                                </li>
+                                            </ul>
+                                            @Html.TextBoxFor(t => t.FiltType, new {@class = "hidden hidden-field", @readonly = "readonly", aria_hidden = "true"})
+                                        </div>
+                                    </div>
+                                    @Html.TextBoxFor(t => t.Keyword, new {@class = "form-control", placeholder = "关键字"})
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default" id="btnFilter"><i class="fa fa-search"></i> <span class="hidden-sm hidden-xs">搜索</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                        </div>
+                        <ol class="list-unstyled"></ol>
+                        <div class="spinner" id="load-list" style="display: none;">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                        <div class="text-muted text-center" id="no-more" style="display: none;">
+                            没有更多数据
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1" id="scrollSpy">
+                    <ul id="page-nav" class="list-unstyled hidden-sm hidden-xs affix-top"></ul>
+                </div>
+            </div>
+            @Html.Partial("_Footer")
+        </div>
+        <div class="col-md-2 hidden-sm hidden-xs empty-block"></div>
+    </div>
+</div>
+<div class="post-cover"></div>
+<div class="post-modal col-md-7 col-sm-12 col-xs-12">
+    <div class="modal-header">
+        <h4></h4>
+    </div>
+    <div class="modal-body">
+        <div class="sk-cube-grid">
+            <div class="sk-cube sk-cube1"></div>
+            <div class="sk-cube sk-cube2"></div>
+            <div class="sk-cube sk-cube3"></div>
+            <div class="sk-cube sk-cube4"></div>
+            <div class="sk-cube sk-cube5"></div>
+            <div class="sk-cube sk-cube6"></div>
+            <div class="sk-cube sk-cube7"></div>
+            <div class="sk-cube sk-cube8"></div>
+            <div class="sk-cube sk-cube9"></div>
+        </div>
+        <div class="post-content">
+            <div></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="col-md-7 text-left  hidden-sm hidden-xs" id="label-foot" style="margin-top: 3px;"></div>
+        <div class="col-md-5 text-right">
+            <button type="button" class="btn btn-default" id="btnCloseModal">关闭</button>
+            <a href="" target="_blank" class="btn btn-success" id="btnFullMode"><i class="fa fa-external-link"></i> 完整模式</a>
+        </div>
+    </div>
+</div>
+<ul class="fixed-tool list-unstyled">
+    @if (Settings.Config.EnableShare)
+    {
+        <li>
+            <div id="share-menu" class="jiathis_style_32x32">
+                <a class="jiathis_button_weixin">
+                    <i class="fa fa-weixin"></i>
+                </a>
+                <a class="jiathis_button_qzone">
+                    <i class="fa fa-qq"></i>
+                </a>
+                <a class="jiathis_button_tsina">
+                    <i class="fa fa-weibo"></i>
+                </a>
+                <a class="jiathis_button_renren">
+                    <i class="fa fa-renren"></i>
+                </a>
+                <a class='menu' title="分享到">
+                    <div class='share' id='ss_toggle' data-rot='180'>
+                        <div class='circle'></div>
+                        <div class='bar'></div>
+                    </div>
+                </a>
+            </div>
+        </li>
+    }
+    <li class="qr-li hidden-sm hidden-xs">
+        <a id="qrBtn" title="二维码">
+            <i class="fa fa-qrcode"></i>
+        </a>
+        <div class="qrcontain popover left animated fadeInLeft">
+            <div class="arrow"></div>
+            <div class="popover-content text-center">
+                <div id="qrcode"></div>
+                <span>手机访问该页面</span>
+            </div>
+        </div>
+    </li>
+    <li id="scrollTop" style="display: none;">
+        <a title="回顶部">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+    </li>
+</ul>
+@Scripts.Render("~/bundles/js")
+<script>
+    var logoPath = "@Settings.Config.LogoPath";
+</script>
+@Scripts.Render("~/bundles/blog")
+<script>
+    var jiathis_config = {
+        data_track_clickback: true,
+        url: "http://@(Settings.Config.SiteDomain)",
+        summary: "",
+        title: "@Settings.Config.SiteName"
+    }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=@(Settings.Config.JiaThisId)" charset="utf-8"></script>

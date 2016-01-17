@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+  <add key="FirstLine" value="第一行文本" />
+  <add key="SecondLine" value="第二行文本" />
+  <add key="PhotoPath" value="/Content/Img/zhr.jpg" />
+  <add key="ThirdLine" value="第三行文本" />
+  <add key="Profile" value="个人简介" />
+  <add key="Wechat" value="微信号" />
+  <add key="QrcodePath" value="" />
+  <add key="Email" value="Email地址" />
+</appSettings>

@@ -1,0 +1,8 @@
+/media/sky/Work/SkyBlog/SkyBlog/SkyBlog.Core/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/media/sky/Work/SkyBlog/SkyBlog/SkyBlog.Core/bin/Release/SkyBlog.Core.dll.mdb
+/media/sky/Work/SkyBlog/SkyBlog/SkyBlog.Core/bin/Release/SkyBlog.Core.dll
+/media/sky/Work/SkyBlog/SkyBlog/SkyBlog.Core/obj/Release/SkyBlog.Core.dll
+/media/sky/Work/SkyBlog/SkyBlog/SkyBlog.Core/obj/Release/SkyBlog.Core.dll.mdb
+/media/sky/Work/SkyBlog/SkyBlog/SkyBlog.Core/bin/Release/MongoDB.Bson.dll
+/media/sky/Work/SkyBlog/SkyBlog/SkyBlog.Core/bin/Release/MongoDB.Driver.dll
+/media/sky/Work/SkyBlog/SkyBlog/SkyBlog.Core/bin/Release/MongoDB.Driver.Core.dll

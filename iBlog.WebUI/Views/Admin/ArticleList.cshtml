@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "文章管理";
+    Layout = "/Views/shared/_LayoutAdmin.cshtml";
+}
+@Styles.Render("~/Content/manage")
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-8">
+        <h2>文章管理</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <div id="toolbar">
+                        <button id="remove" class="btn btn-white" disabled>
+                            <i class="fa fa-trash-o"></i> <span class="badge"></span>
+                        </button>
+                        <a href="/admin/newarticle" class="btn btn-white">
+                            <i class="fa fa-plus"></i> 新的文章
+                        </a>
+                    </div>
+                    <table id="articles"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ul class="fixed-tool list-unstyled">
+    <li id="scrollTop" style="display: none;">
+        <a title="回顶部">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </li>
+</ul>
+@Scripts.Render("~/bundles/admin")
+@Scripts.Render("~/bundles/manage")

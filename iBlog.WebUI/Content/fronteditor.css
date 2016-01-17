@@ -1,0 +1,44 @@
+﻿.container-fluid {
+    height: 100%;
+}
+
+.tool-title {
+    position: absolute;
+    width: 100%;
+    top: 90px;
+}
+
+.tool-nav h4, .tool-nav a {
+    float: left;
+}
+
+.tool-nav a {
+    margin-left: 10px;
+    margin-top: 11px;
+}
+
+.bootcdn {
+    margin-top: 16px;
+}
+
+.edit-row {
+    height: 100%;
+    padding-top: 130px;
+    padding-bottom: 20px;
+}
+
+#content, #page {
+    height: 100%;
+}
+
+#editor, #frame1 {
+    position: relative;
+    height: 100%;
+    padding-bottom: 30px;
+}
+
+#frame1 {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    width: 100%;
+}

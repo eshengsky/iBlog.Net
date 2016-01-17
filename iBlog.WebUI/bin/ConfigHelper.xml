@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConfigHelper</name>
+    </assembly>
+    <members>
+        <member name="T:ConfigHelper.CustomConfig">
+            <summary>
+            Loads the CustomConfig file.
+            </summary>
+        </member>
+        <member name="T:ConfigHelper.IBaseConfigType">
+            <summary>
+            Needs to be inherited in order to register different types of IConfigType&lt;T&gt;
+            </summary>
+        </member>
+        <member name="T:ConfigHelper.IConfigType`1">
+            <summary>
+            Needs to be inherited in order to load the config. 
+            </summary>
+            <remarks>
+            If &lt;T&gt; is another type than Configuration or XmlConfiguration
+            it will not work.
+            </remarks>
+            <typeparam name="T">The returning configuration (only System.Configuration.Configuration or ConfigHelper.XmlConfiguration)</typeparam>
+        </member>
+        <member name="M:ConfigHelper.IConfigType`1.LoadConfig(System.String,System.String)">
+            <summary>
+            Gets the configuration file
+            </summary>
+            <param name="configName">Configuration name</param>
+            <param name="path">Path to configuration</param>
+            <returns>The returning configuration (only System.Configuration.Configuration or ConfigHelper.XmlConfiguration)</returns>
+        </member>
+        <member name="M:ConfigHelper.CustomConfig.GetCustomConfig(System.String,System.String)">
+            <summary>
+            Opens the configuration file
+            </summary>
+            <param name="configName">Name of the configuration file (without the extension)</param>
+            <param name="path">Path to the configuration file</param>
+            <returns>Configuration</returns>
+        </member>
+        <member name="T:ConfigHelper.XmlConfig">
+            <summary>
+            Loads the XmlConfig file.
+            </summary>
+        </member>
+        <member name="M:ConfigHelper.XmlConfig.GetCustomXmlConfig(System.String,System.String)">
+            <summary>
+            Opens the xml file
+            </summary>
+            <param name="configName">Name of the xml file (without the extension)</param>
+            <param name="path">Path to the xml file</param>
+            <returns>XmlConfiguration</returns>
+        </member>
+        <member name="M:ConfigHelper.XmlConfig.ConfigExist(System.String,System.String,System.String)">
+            <summary>
+            Checks if the specified configuration exists.
+            </summary>
+            <param name="configPath">Path to the configuration file.</param>
+            <param name="configName">Name of the configuration file.</param>
+            <param name="extension"></param>
+            <returns>Returns true if configuration exists.</returns>
+        </member>
+        <member name="T:ConfigHelper.ConvertArgumentException">
+            <summary>
+            The exception thrown when propgram failed to convert a property to string and vice-versa.
+            </summary>
+        </member>
+        <member name="M:ConfigHelper.ConvertArgumentException.#ctor(System.String)">
+            <summary>
+            Base contstructor for ConvertArgumentException.
+            </summary>
+            <param name="msg">The message to be displayed when exception is thrown.</param>
+        </member>
+        <member name="T:ConfigHelper.WebConfig">
+            <summary>
+            Gets the WebConfig file.
+            </summary>
+        </member>
+        <member name="T:ConfigHelper.AppConfig">
+            <summary>
+            Loads the AppConfig file.
+            </summary>
+        </member>
+        <member name="T:ConfigHelper.IsSetting">
+            <summary>
+            Used to confirm that the property is a setting that should be saved/loaded
+            </summary>
+        </member>
+        <member name="T:ConfigHelper.ConfigSettings">
+            <summary>
+            ConfigSettings helps loading and saving an objects properties marked with the attribute [IsSetting]
+            to appSettings in a configuration file.
+            <para>Only supports regular arrays</para>
+            </summary>
+        </member>
+        <member name="T:ConfigHelper.IConfigSettings">
+            <summary>
+            ConfigSettings helps loading and saving an objects properties marked with the attribute [IsSetting]
+            to appSettings in a configuration file.
+            </summary>
+        </member>
+        <member name="M:ConfigHelper.IConfigSettings.Load``1(System.Object,System.String,System.String)">
+            <summary>
+            Loads the keys represented by the objects properties from the config specified.
+            </summary>
+            <param name="configName">The name of the configuration to be loaded from.</param>
+            <param name="obj">The class with the properties to be loaded to.</param>
+            <param name="path">The path to the config file.</param>
+        </member>
+        <member name="M:ConfigHelper.IConfigSettings.Save``1(System.Object,System.String,System.String)">
+            <summary>
+            Saves the properties of the object represented as key value pair to the config specified.
+            </summary>
+            <param name="configName">The name of the configuration which the keys will be saved to.</param>
+            <param name="obj">The class with the properties that is to be saved.</param>
+            <param name="path">The path to the config file.</param>
+        </member>
+        <member name="M:ConfigHelper.IConfigSettings.RegisterConfigType(ConfigHelper.IBaseConfigType)">
+            <summary>
+            Registers a configuration type which is used to get the configuration file (for now)
+            </summary>
+            <param name="configType">The type to be registered</param>
+        </member>
+        <member name="M:ConfigHelper.IConfigSettings.ClearConfigTypes">
+            <summary>
+            Clears all the registerd configuration types
+            </summary>
+        </member>
+        <member name="M:ConfigHelper.ConfigSettings.#ctor">
+            <summary>
+            Default constructor, registers the following: AppConfig, WebConfig,CustomConfig and XmlConfig.
+            </summary>
+        </member>
+    </members>
+</doc>

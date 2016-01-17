@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "后台管理";
+    Layout = "/Views/shared/_LayoutAdmin.cshtml";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-8">
+        <h2>网站统计</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <iframe src="http://tongji.baidu.com/web/10351719/overview/sole?siteId=7632950" style="width: 100%; min-height: 2000px; border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/admin")
+<script>
+    $(function () {
+        $("#side-menu>li:eq(1)").addClass("active");
+    });
+</script>

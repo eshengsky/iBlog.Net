@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "留言";
+}
+<div class="container-fluid detail-container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 detail-wrap" style="min-height: 800px;">
+            <div id="uyan_frame"></div>
+            <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=@(Settings.Config.YouyanId)"></script>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</div>
+<ul class="fixed-tool list-unstyled">
+    <li id="scrollTop" style="display: none;">
+        <a title="回顶部">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+    </li>
+</ul>
+@Scripts.Render("~/bundles/js")
+@Scripts.Render("~/bundles/guestbook")

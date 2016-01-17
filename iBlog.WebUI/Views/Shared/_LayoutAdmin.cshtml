@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/admin")
+</head>
+<body class="fuelux">
+    <div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span>
+                                <a href="/" target="_blank"><img alt="image" class="img-circle img-lg" src="@Settings.Config.LogoPath" /></a>
+                            </span>
+                            <a href="/admin/index">
+                                <h4>后台管理</h4>
+                            </a>
+                        </div>
+                        <div class="logo-element">
+                            <img alt="image" class="img-circle img-sm" src="@Settings.Config.LogoPath" />
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/admin/index"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">网站统计</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">博客管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level collapse">
+                            <li><a href="/admin/newarticle">新的文章</a></li>
+                            <li><a href="/admin/categorymanage">分类管理</a></li>
+                            <li><a href="/admin/articlelist">文章管理</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/admin/comments"><i class="fa fa-comments-o"></i> <span class="nav-label">评论管理</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/guestbook"><i class="fa fa-edit"></i> <span class="nav-label">留言管理</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/aboutmanage"><i class="fa fa-user"></i> <span class="nav-label">关于管理</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/cachemanage"><i class="fa fa-database"></i> <span class="nav-label">缓存管理</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/exception"><i class="fa fa-bug"></i> <span class="nav-label">异常管理</span></a>
+                    </li>
+                    <li>
+                        <a href="/admin/settings"><i class="fa fa-gears"></i> <span class="nav-label">系统设置</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li>
+                                <a href="javascript:$('#logoutForm').submit()" title="退出登录">
+                                    <i class="fa fa-power-off"></i> 退出登录
+                                </a>
+                            </li>
+                        </ul>
+                    }
+                </nav>
+            </div>
+            @RenderBody()
+            <div class="footer">
+                <div class="text-center">
+                    @(DateTime.Now.Year) © All Rights Reserved@(!string.IsNullOrWhiteSpace(Settings.Config.RecordNo) ? " | " + Settings.Config.RecordNo : "")
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

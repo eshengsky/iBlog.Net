@@ -1,0 +1,174 @@
+﻿<error errorId="4bdd71e5-5267-46bb-b8ca-92e6579e3c7a" host="SKY-PC" type="System.Exception" message="文章id：project 不存在！" detail="System.Exception: 文章id：project 不存在！" time="2016-01-17T07:13:55.5595379Z" statusCode="404">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;HTTP_COOKIE:bdshare_firstime=1442064171639; Hm_lvt_bbcf1c00c855ede39d5ad2eac08d2ab7=1448693876,1450506134,1450598688; Hm_lvt_646bc927e37fe4c5c0e6e7c2d37fcb2c=1452920896,1452925894,1452948353,1453013139; .ASPXAUTH=196CEB2D069A480826F9793B333BC6E8214636CD3CC3F47306194E46EC475359556417BCC432B1394FD63C581166C574ACEA9FB2FC6153F0D3C3008B538CE2253701FD83AB6CDBE869E6790056ED767D2D0AE4843C45E9D580358ACE6E807BA1; Hm_lpvt_646bc927e37fe4c5c0e6e7c2d37fcb2c=1453013147&#xD;&#xA;HTTP_HOST:localhost:88&#xD;&#xA;HTTP_REFERER:http://localhost:88/&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0&#xD;&#xA;HTTP_DNT:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3&#xD;&#xA;Cookie: bdshare_firstime=1442064171639; Hm_lvt_bbcf1c00c855ede39d5ad2eac08d2ab7=1448693876,1450506134,1450598688; Hm_lvt_646bc927e37fe4c5c0e6e7c2d37fcb2c=1452920896,1452925894,1452948353,1453013139; .ASPXAUTH=196CEB2D069A480826F9793B333BC6E8214636CD3CC3F47306194E46EC475359556417BCC432B1394FD63C581166C574ACEA9FB2FC6153F0D3C3008B538CE2253701FD83AB6CDBE869E6790056ED767D2D0AE4843C45E9D580358ACE6E807BA1; Hm_lpvt_646bc927e37fe4c5c0e6e7c2d37fcb2c=1453013147&#xD;&#xA;Host: localhost:88&#xD;&#xA;Referer: http://localhost:88/&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0&#xD;&#xA;DNT: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/4/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="F:\iBlog\iBlog.WebUI\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="4" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/4" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/project" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="F:\iBlog\iBlog.WebUI\project" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="3991" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/project" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="88" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/project" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="bdshare_firstime=1442064171639; Hm_lvt_bbcf1c00c855ede39d5ad2eac08d2ab7=1448693876,1450506134,1450598688; Hm_lvt_646bc927e37fe4c5c0e6e7c2d37fcb2c=1452920896,1452925894,1452948353,1453013139; .ASPXAUTH=196CEB2D069A480826F9793B333BC6E8214636CD3CC3F47306194E46EC475359556417BCC432B1394FD63C581166C574ACEA9FB2FC6153F0D3C3008B538CE2253701FD83AB6CDBE869E6790056ED767D2D0AE4843C45E9D580358ACE6E807BA1; Hm_lpvt_646bc927e37fe4c5c0e6e7c2d37fcb2c=1453013147" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:88" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:88/" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 10.0; WOW64; rv:43.0) Gecko/20100101 Firefox/43.0" />
+    </item>
+    <item name="HTTP_DNT">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="bdshare_firstime">
+      <value string="1442064171639" />
+    </item>
+    <item name="Hm_lvt_bbcf1c00c855ede39d5ad2eac08d2ab7">
+      <value string="1448693876,1450506134,1450598688" />
+    </item>
+    <item name="Hm_lvt_646bc927e37fe4c5c0e6e7c2d37fcb2c">
+      <value string="1452920896,1452925894,1452948353,1453013139" />
+    </item>
+    <item name="Hm_lpvt_646bc927e37fe4c5c0e6e7c2d37fcb2c">
+      <value string="1453013147" />
+    </item>
+  </cookies>
+</error>

@@ -1,0 +1,9 @@
+﻿<div class="row footer">
+    <div class="col-md-12">
+        <footer>
+            <p>
+                @(DateTime.Now.Year) © All Rights Reserved@(!string.IsNullOrWhiteSpace(Settings.Config.RecordNo) ? " | " + Settings.Config.RecordNo : "") <span class="hidden-xs">| <a href="/admin/index" target="_blank">后台管理</a></span>
+            </p>
+        </footer>
+    </div>
+</div>

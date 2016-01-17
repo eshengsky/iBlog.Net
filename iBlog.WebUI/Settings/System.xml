@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<appSettings>
+  <add key="SiteName" value="iBlog" />
+  <add key="SiteDomain" value="www.example.com" />
+  <add key="RecordNo" value="浙ICP备XXX号" />
+  <add key="LogoPath" value="/Content/Img/zhr.jpg" />
+  <add key="PageSize" value="10" />
+  <add key="ShowMenu" value="True" />
+  <add key="CacheExpired" value="60" />
+  <add key="TranslateKey" value="" />
+  <add key="EnableStatistics" value="True" />
+  <add key="StatisticsId" value="" />
+  <add key="EnableShare" value="True" />
+  <add key="JiaThisId" value="" />
+  <add key="ShowComments" value="True" />
+  <add key="ChangyanId" value="" />
+  <add key="ChangyanConf" value="" />
+  <add key="ShowGuestbook" value="True" />
+  <add key="YouyanId" value="" />
+</appSettings>

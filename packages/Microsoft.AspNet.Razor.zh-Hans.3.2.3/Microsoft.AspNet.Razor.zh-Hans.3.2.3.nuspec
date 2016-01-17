@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.Razor.zh-Hans</id>
+    <version>3.2.3</version>
+    <title>Microsoft ASP.NET Razor 简体中文资源</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/net_library_eula_CHS.htm</licenseUrl>
+    <projectUrl>http://www.asp.net/web-pages</projectUrl>
+    <iconUrl>http://go.microsoft.com/fwlink/?LinkID=288859</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>此程序包包含 ASP.NET Razor 的简体中文附属程序集。</description>
+    <summary>Microsoft.AspNet.Razor 程序包的简体中文资源</summary>
+    <releaseNotes>Please visit http://go.microsoft.com/fwlink/?LinkID=403011 to view the release notes.</releaseNotes>
+    <copyright>© Microsoft Corporation。保留所有权利。</copyright>
+    <language>zh-Hans</language>
+    <tags>Microsoft AspNet WebPages AspNetWebPages Razor</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.Razor" version="[3.2.3]" />
+    </dependencies>
+  </metadata>
+</package>

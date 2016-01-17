@@ -1,0 +1,89 @@
+﻿@model AboutConfig
+@{
+    ViewBag.Title = "关于";
+}
+<div class="container-fluid detail-container">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <div class="about-block animated fadeInDown">
+                <div class="widget-head-color-box navy-bg p-lg text-center">
+                    <div class="m-b-md">
+                        <h2 class="font-bold no-margins">@Html.Raw(Model.FirstLine)</h2>
+                        <h4>@Html.Raw(Model.SecondLine)</h4>
+                    </div>
+                    <img alt="profile" class="img-circle profile-img m-b-md animated zoomIn" src="@Model.PhotoPath">
+                    <img alt="wechat" class="wechat-img m-b-md animated zoomIn" src="@Model.QrcodePath" style="display:none;">
+                    <h4>
+                        <span id="job-title">@Html.Raw(Model.ThirdLine)</span>
+                    </h4>
+                </div>
+                <div class="widget-text-box">
+                    <p>@Html.Raw(Model.Profile)</p>
+                    <div class="row">
+                        <div class="col-md-6"><i class="fa fa-wechat"></i> @Html.Raw(Model.Wechat) <i class="fa fa-lg fa-qrcode"></i></div>
+                        <div class="col-md-6"><i class="fa fa-envelope"></i> @Html.Raw(Model.Email)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+</div>
+<ul class="fixed-tool list-unstyled">
+    @if (Settings.Config.EnableShare)
+    {
+        <li>
+            <div id="share-menu" class="jiathis_style_32x32">
+                <a class="jiathis_button_weixin">
+                    <i class="fa fa-weixin"></i>
+                </a>
+                <a class="jiathis_button_qzone">
+                    <i class="fa fa-qq"></i>
+                </a>
+                <a class="jiathis_button_tsina">
+                    <i class="fa fa-weibo"></i>
+                </a>
+                <a class="jiathis_button_renren">
+                    <i class="fa fa-renren"></i>
+                </a>
+                <a class='menu' title="分享到">
+                    <div class='share' id='ss_toggle' data-rot='180'>
+                        <div class='circle'></div>
+                        <div class='bar'></div>
+                    </div>
+                </a>
+            </div>
+        </li>
+    }
+    <li class="qr-li hidden-sm hidden-xs">
+        <a id="qrBtn" title="二维码">
+            <i class="fa fa-qrcode"></i>
+        </a>
+        <div class="qrcontain popover left animated fadeInLeft">
+            <div class="arrow"></div>
+            <div class="popover-content text-center">
+                <div id="qrcode"></div>
+                <span>手机访问该页面</span>
+            </div>
+        </div>
+    </li>
+    <li id="scrollTop" style="display: none;">
+        <a title="回顶部">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+    </li>
+</ul>
+@Scripts.Render("~/bundles/js")
+<script>
+    var logoPath = "@Settings.Config.LogoPath";
+</script>
+@Scripts.Render("~/bundles/about")
+<script>
+    var jiathis_config = {
+        data_track_clickback: true,
+        url: window.location.href,
+        summary: "",
+        title: "@(Settings.Config.SiteName + " - 关于")"
+    }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=@(Settings.Config.JiaThisId)" charset="utf-8"></script>

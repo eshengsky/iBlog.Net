@@ -1,0 +1,120 @@
+﻿@model PostItem
+
+@{
+    ViewBag.Title = Model.Title;
+}
+@Styles.Render("~/Content/item")
+<div class="detail-container">
+    <div class="container">
+        <div class="row">
+            <article class="@(Settings.Config.ShowMenu?"col-md-9":"col-md-12") col-sm-12 col-xs-12 detail-wrap post-content animated fadeIn">
+                @if (Settings.Config.ShowMenu)
+                {
+                    <button class="btn btn-default btn-menu" title="显示目录"><i class="fa fa-align-justify"></i></button>
+                }
+                <div class="hidden-sm hidden-xs">
+                    <div class="text-muted pull-left">
+                        <span title="文章分类"><i class="fa fa-tasks"></i> @Model.CateName</span>
+                    </div>
+                    <div class="text-muted pull-right">
+                        @foreach (var label in Model.LabelList)
+                        {
+                            <span class="post-label" title="@label">@label</span>
+                        }
+                    </div>
+                    <div style="" class="clearfix"></div>
+                </div>
+                <header class="text-center post-title">
+                    <span class="text-muted" title="发布时间">
+                        <i class="fa fa-clock-o"></i> @Model.CreateTimeStr
+                    </span>
+                    <h1>@Model.Title</h1>
+                </header>
+                <div id="mian-context">
+                    <h2>摘要</h2>
+                    <p>@Model.Summary</p>
+                    @Html.Raw(Model.Content)
+                </div>
+
+                @if (Settings.Config.ShowComments)
+                {
+                    <hr class="hr-article" />
+                    <div id="SOHUCS" sid="@Model.UniqueId"></div>
+                    <script charset="utf-8" type="text/javascript" src="http://changyan.sohu.com/upload/changyan.js"></script>
+                    <script type="text/javascript">
+                        window.changyan.api.config({
+                            appid: '@Settings.Config.ChangyanId',
+                            conf: '@Settings.Config.ChangyanConf'
+                        });
+                    </script>
+                }
+            </article>
+            @if (Settings.Config.ShowMenu)
+            {
+                <div id="control-wrap" class="col-md-3 hidden-sm hidden-xs">
+                    <a class="close-menu" title="隐藏目录"><i class="fa fa-times"></i></a>
+                </div>
+            }
+        </div>
+
+        @Html.Partial("_Footer")
+    </div>
+</div>
+<ul class="fixed-tool list-unstyled">
+    @if (Settings.Config.EnableShare)
+    {
+    <li>
+        <div id="share-menu" class="jiathis_style_32x32">
+            <a class="jiathis_button_weixin">
+                <i class="fa fa-weixin"></i>
+            </a>
+            <a class="jiathis_button_qzone">
+                <i class="fa fa-qq"></i>
+            </a>
+            <a class="jiathis_button_tsina">
+                <i class="fa fa-weibo"></i>
+            </a>
+            <a class="jiathis_button_renren">
+                <i class="fa fa-renren"></i>
+            </a>
+            <a class='menu' title="分享到">
+                <div class='share' id='ss_toggle' data-rot='180'>
+                    <div class='circle'></div>
+                    <div class='bar'></div>
+                </div>
+            </a>
+        </div>
+    </li>
+    }
+    <li class="qr-li hidden-sm hidden-xs">
+        <a id="qrBtn" title="二维码">
+            <i class="fa fa-qrcode"></i>
+        </a>
+        <div class="qrcontain popover left animated fadeInLeft">
+            <div class="arrow"></div>
+            <div class="popover-content text-center">
+                <div id="qrcode"></div>
+                <span>手机访问该页面</span>
+            </div>
+        </div>
+    </li>
+    <li id="scrollTop" style="display: none;">
+        <a title="回顶部">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+    </li>
+</ul>
+@Scripts.Render("~/bundles/js")
+<script>
+    var logoPath = "@Settings.Config.LogoPath";
+</script>
+@Scripts.Render("~/bundles/item")
+<script>
+    var jiathis_config = {
+        data_track_clickback: true,
+        url: window.location.href,
+        summary: "@Model.Summary",
+        title: "@Model.Title"
+    }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=@(Settings.Config.JiaThisId)" charset="utf-8"></script>

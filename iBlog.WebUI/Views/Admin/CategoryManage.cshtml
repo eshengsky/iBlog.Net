@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "文章分类";
+    Layout = "/Views/shared/_LayoutAdmin.cshtml";
+}
+@Styles.Render("~/Content/cate-manage")
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-8">
+        <h2>分类管理</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="ibox">
+                <div>
+                    <ul class="list-group list-unstyled" id="cate-list"></ul>
+                    <button id="btnNew" class="btn btn-white"><i class="fa fa-plus"></i> 新的分类</button>
+                    <button id="btnSave" class="btn btn-primary pull-right"><i class="fa fa-cloud-upload"></i> 保存修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ul class="fixed-tool list-unstyled">
+    <li id="scrollTop" style="display: none;">
+        <a title="回顶部">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </li>
+</ul>
+@Scripts.Render("~/bundles/admin")
+@Scripts.Render("~/bundles/cate-manage")

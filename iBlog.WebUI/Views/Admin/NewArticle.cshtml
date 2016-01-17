@@ -1,0 +1,133 @@
+﻿@model Post
+
+@{
+    ViewBag.Title = "新的文章";
+    Layout = "/Views/shared/_LayoutAdmin.cshtml";
+}
+@Styles.Render("~/Content/new")
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-8">
+        <h2>新的文章</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+                    @using (Ajax.BeginForm("AddArticle", "Admin", null, new AjaxOptions { HttpMethod = "Post", OnSuccess = "onSuccess", OnComplete = "onComplete" }, new { @id = "postForm" }))
+                    {
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    @Html.LabelFor(t => t.Title, "标题")
+                                    @Html.TextBoxFor(t => t.Title, new { @class = "form-control", @placeholder = "请输入标题" })
+                                    @Html.ValidationMessageFor(t => t.Title)
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    @Html.LabelFor(t => t.CategoryAlias, "分类")
+                                    <div class="btn-group selectlist" data-resize="auto" data-initialize="selectlist" id="Categorylist">
+                                        <button class="btn btn-white dropdown-toggle" data-toggle="dropdown" type="button">
+                                            <span class="selected-label">&nbsp;</span>
+                                            <span class="caret"></span>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu"></ul>
+                                        @Html.TextBoxFor(t => t.CategoryAlias, new { @class = "hidden hidden-field", @readonly = "readonly", @aria_hidden = "true" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    @Html.LabelFor(t => t.Alias, "Alias")
+                                    @Html.TextBoxFor(t => t.Alias, new { @class = "form-control", @placeholder = "请输入Alias" })
+                                    @Html.ValidationMessageFor(t => t.Alias)
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-sm btn-white btn-alias"><i class="fa fa-flash"></i> 根据标题自动生成</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(t => t.Summary, "摘要")
+                            @Html.TextAreaFor(t => t.Summary, new { @class = "form-control", @style = "min-width: 100%;max-width: 100%;", @placeholder = "请输入摘要" })
+                            @Html.ValidationMessageFor(t => t.Summary)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(t => t.Source, "来源")
+                            <label class="radio-custom radio-inline" data-initialize="radio" id="soruceLocal">
+                                <input class="sr-only" data-toggle="#block-local" name="Source" type="radio" value="0" checked="checked"> 本地
+                            </label>
+                            <label class="radio-custom radio-inline" data-initialize="radio" id="soruceLink">
+                                <input class="sr-only" data-toggle="#block-link" name="Source" type="radio" value="1"> 外链
+                            </label>
+                        </div>
+                        <div id="block-local">
+                            <div class="form-group">
+                                @Html.LabelFor(t => t.Labels, "标签")
+                                <div class="pillbox" data-initialize="pillbox" id="myPillbox">
+                                    <ul class="clearfix pill-group">
+                                        <li class="pillbox-input-wrap btn-group">
+                                            <a class="pillbox-more">and <span class="pillbox-more-count"></span> more...</a>
+                                            <input type="text" class="form-control dropdown-toggle pillbox-add-item" placeholder="回车新增">
+                                            <button type="button" class="dropdown-toggle sr-only">
+                                                <span class="caret"></span>
+                                                <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="suggest dropdown-menu" role="menu" data-toggle="dropdown" data-flip="auto"></ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                @Html.HiddenFor(t => t.Labels)
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(t => t.Content, "正文")
+                                <script id="editor" type="text/plain">
+                                </script>
+                            </div>
+                        </div>
+                        <div id="block-link">
+                            <div class="form-group">
+                                @Html.LabelFor(t => t.Url, "Url")
+                                @Html.TextBoxFor(t => t.Url, new { @class = "form-control", @placeholder = "请输入链接地址" })
+                                @Html.ValidationMessageFor(t => t.Url)
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" type="button" id="btnPublish">
+                                <i class="fa fa-send"></i> 发布
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ul class="fixed-tool list-unstyled">
+    <li id="scrollTop" style="display: none;">
+        <a title="回顶部">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </li>
+</ul>
+@Scripts.Render("~/bundles/admin")
+<script src="~/ueditor/ueditor.config.js"></script>
+<script src="~/ueditor/ueditor.all.js"></script>
+<script src="~/ueditor/dialogs/insertlabel/insertlabel.js"></script>
+<script src="~/ueditor/dialogs/inserticon/inserticon.js"></script>
+<script src="~/ueditor/dialogs/insertalert/insertalert.js"></script>
+<script src="~/ueditor/dialogs/insertlayout/insertlayout.js"></script>
+<script src="~/ueditor/dialogs/inserttree/inserttree.js"></script>
+<script src="~/ueditor/dialogs/insertprogress/insertprogress.js"></script>
+<script>
+    var translateKey = "@Settings.Config.TranslateKey";
+</script>
+@Scripts.Render("~/bundles/new")
+

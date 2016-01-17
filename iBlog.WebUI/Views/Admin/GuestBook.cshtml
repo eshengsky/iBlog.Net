@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "留言管理";
+    Layout = "/Views/shared/_LayoutAdmin.cshtml";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-8">
+        <h2>留言管理</h2>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-content">
+                    <iframe src="http://www.uyan.cc/comment/content/?domain=@(Settings.Config.SiteDomain)&ufrom=&stat=0" style="width: 100%; min-height: 4000px; border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/admin")
+<script>
+    $(function () {
+        $("#side-menu>li:eq(4)").addClass("active");
+    });
+</script>

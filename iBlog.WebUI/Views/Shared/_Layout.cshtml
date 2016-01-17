@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body class="fuelux">
+    @if (Request.Url.PathAndQuery == "/")
+    {
+        @Styles.Render("~/Content/loading")
+        <div class="home-loading" id="home-loading">
+            <div class="loading-con" id="loading-con" style="display:none;">
+                <div class="loading-circle"></div>
+                <script>
+                    var home_loading_begin = new Date();
+                    document.body.style.overflow = "hidden";
+                    function imgLoad() {
+                        document.getElementById("home-loading").style.background = "#f3f3f4";
+                        document.getElementById("loading-con").style.display = "block";
+                    }
+                </script>
+                <img id="loadingImg" alt="loading" src="@Settings.Config.LogoPath" onload="imgLoad();">
+            </div>
+        </div>
+    }
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">
+                    <img src="@Settings.Config.LogoPath">
+                    <span>@Settings.Config.SiteName</span>
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class=" nav navbar-nav my-nav-pills navbar-right">
+                    <li><a href="/blog/category"><i class="fa fa-file-text-o fa-fw"></i> 博客</a></li>
+                    @if (Settings.Config.ShowGuestbook)
+                    {
+                        <li><a href="/guestbook"><i class="fa fa-edit fa-fw"></i> 留言</a></li>
+                    }
+                    <li><a href="/about"><i class="fa fa-user fa-fw"></i> 关于</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @RenderBody()
+    @if (Settings.Config.EnableStatistics)
+    {
+        <!--百度统计代码-->
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?@(Settings.Config.StatisticsId)";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    }
+</body>
+</html>

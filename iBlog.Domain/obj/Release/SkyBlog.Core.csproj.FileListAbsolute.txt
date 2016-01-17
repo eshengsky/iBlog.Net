@@ -1,0 +1,10 @@
+F:\SkyBlog\SkyBlog\SkyBlog.Core\bin\Release\SkyBlog.Core.dll
+F:\SkyBlog\SkyBlog\SkyBlog.Core\bin\Release\SkyBlog.Core.pdb
+F:\SkyBlog\SkyBlog\SkyBlog.Core\bin\Release\MongoDB.Bson.dll
+F:\SkyBlog\SkyBlog\SkyBlog.Core\bin\Release\MongoDB.Driver.Core.dll
+F:\SkyBlog\SkyBlog\SkyBlog.Core\bin\Release\MongoDB.Driver.dll
+F:\SkyBlog\SkyBlog\SkyBlog.Core\bin\Release\MongoDB.Bson.xml
+F:\SkyBlog\SkyBlog\SkyBlog.Core\bin\Release\MongoDB.Driver.xml
+F:\SkyBlog\SkyBlog\SkyBlog.Core\obj\Release\SkyBlog.Core.dll
+F:\SkyBlog\SkyBlog\SkyBlog.Core\obj\Release\SkyBlog.Core.pdb
+F:\SkyBlog\SkyBlog\SkyBlog.Core\obj\Release\SkyBlog.Core.csprojResolveAssemblyReference.cache
