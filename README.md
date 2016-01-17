@@ -11,7 +11,7 @@
 * 前台预览  
 查看[我的博客](http://www.skysun.name)
 * 后台管理预览  
-![image](https://github.com/eshengsky/iBlog/blob/master/iBlog/iBlog.WebUI/Content/Img/newarticle.png)
+![image](https://raw.githubusercontent.com/eshengsky/iBlog/master/iBlog.WebUI/Content/Img/newarticle.png)
 
 ### 快速开始
 * 准备条件  
