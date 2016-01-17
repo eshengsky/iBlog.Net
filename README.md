@@ -2,13 +2,13 @@
 美观大方、功能全面的个人博客系统。
 
 ### 功能模块
-* 博客  
+* **博客**  
 展示发布的文章或外部链接。  
-* 留言  
+* **留言**  
 供访问者留言。
-* 关于  
+* **关于**  
 一个简约现代的个人简介页面。
-* 后台管理  
+* **后台管理**  
 包含网站统计、博客管理（新的文章、分类管理、文章管理）、评论管理、留言管理、关于管理、缓存管理、异常管理、系统设置。
 
 ### 技术构成
@@ -18,17 +18,17 @@
 * 缓存 [Redis](http://redis.io/)
 
 ### 页面预览
-* 前台预览  
+* **前台预览**  
 查看[我的博客](http://www.skysun.name)
-* 后台管理预览  
+* **后台管理预览**  
 ![image](https://raw.githubusercontent.com/eshengsky/iBlog/master/iBlog.WebUI/Content/Img/newarticle.png)
 
 ### 快速开始
-* 准备条件  
+* **准备条件**  
 在Windows上安装[IIS](http://www.iis.net/)、[MongoDB](https://www.mongodb.org/)、[Redis](https://github.com/MSOpenTech/redis/releases)。
-* 发布站点  
+* **发布站点**  
 使用Release模式编译iBlog解决方案，将iBlog.WebUI作为网站目录发布到IIS。
-* 参数配置  
+* **参数配置**  
 在iBlog.WebUI下的web.config中，查找并修改MongoDB连接信息：  
 `<add name="MongoDB" connectionString="mongodb://localhost:27017/iBlog" />`  
 Redis的配置信息：  
