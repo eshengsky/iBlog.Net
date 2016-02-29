@@ -22,6 +22,7 @@
 查看[我的博客](http://www.skysun.name)
 * **后台管理预览**  
 ![image](https://raw.githubusercontent.com/eshengsky/iBlog/master/iBlog.WebUI/Content/Img/newarticle.png)
+<a href="https://raw.githubusercontent.com/eshengsky/iBlog/master/iBlog.WebUI/Content/Img/newarticle.png"><img src="https://raw.githubusercontent.com/eshengsky/iBlog/master/iBlog.WebUI/Content/Img/newarticle.png" style="width:200px;"/></a>
 
 ### 快速开始
 * **准备条件**  
