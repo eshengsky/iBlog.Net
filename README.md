@@ -1,6 +1,6 @@
 # iBlog
 美观大方、功能全面的个人博客系统。  
-（基于 Node.js 的 iBlog 点击[这里](https://github.com/eshengsky/iBlog2/)）
+（基于 Node.js 的 iBlog 点击[这里](https://github.com/eshengsky/iBlog/)）
 
 ## 功能模块
 * **博客**  
